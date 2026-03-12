@@ -30,7 +30,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0F172A] text-white">
       {/* Enhanced Navbar */}
-      <nav className="fixed top-0 w-full bg-[#0F172A]/80 backdrop-blur-md shadow-sm z-50 border-b border-white/10">
+      <nav className="fixed top-0 w-full z-50" style={{
+        background: 'rgba(10, 15, 30, 0.85)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+      }}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo + Company Name */}
           <div className="flex items-center gap-3">
@@ -98,7 +102,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section - Premium Dark */}
-      <section id="home" className="relative px-6 min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]">
+      <section id="home" className="relative px-6 pr-10 md:pr-16 min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-96 h-96 bg-[#3B82F6]/10 rounded-full blur-3xl animate-pulse"></div>
@@ -114,21 +118,21 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto w-full py-12 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left Side - Content */}
-            <div className="text-left space-y-8">
+            <div className="text-left space-y-6">
               <h1 className="font-bold text-white leading-[1.2] py-6 md:py-8" style={{fontSize: 'clamp(1.25rem, 3.5vw, 2.5rem)'}}>
                 We Build Software That Launches, Scales, and Lasts.
               </h1>
               
-              <p className="text-gray-300 leading-relaxed pt-4" style={{fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: '1.6'}}>
+              <p className="text-gray-300 leading-relaxed pt-2" style={{fontSize: 'clamp(1rem, 2vw, 1.2rem)', lineHeight: '1.6'}}>
                 Endesha delivers full-stack web apps, mobile products, and AI integrations for startups and growing companies — from first prototype to production-grade scale.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-5 pt-6">
-                <a href="#contact" className="group bg-[#3B82F6] text-white px-10 py-5 rounded-xl hover:bg-[#2563EB] transition-all duration-300 font-semibold shadow-xl shadow-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/30 hover:scale-105 transform text-center" style={{fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)'}}>
+                <a href="#contact" className="group bg-[#3B82F6] text-white px-8 py-3.5 rounded-xl hover:bg-[#2563EB] transition-all duration-300 font-semibold shadow-xl shadow-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/30 hover:scale-105 transform text-center" style={{fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)'}}>
                   Book a Discovery Call
                   <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </a>
-                <a href="#portfolio" className="group bg-white/10 text-white px-10 py-5 rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold border-2 border-white/30 hover:border-white/50 backdrop-blur-sm text-center" style={{fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)'}}>
+                <a href="#portfolio" className="group bg-white/10 text-white px-8 py-3.5 rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold border-2 border-white/30 hover:border-white/50 backdrop-blur-sm text-center" style={{fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)'}}>
                   See Our Work
                   <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </a>
