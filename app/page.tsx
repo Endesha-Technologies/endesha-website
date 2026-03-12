@@ -35,15 +35,14 @@ export default function Home() {
                 <span className="text-[#3B82F6] font-semibold text-sm">🚀 Trusted by 500+ Companies</span>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#0F172A] leading-tight">
-                Transform Your Business with 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6]"> Cutting-Edge Tech</span>
+                We Build Scalable Software for Modern Businesses
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
-                We deliver enterprise-grade software solutions that drive growth, increase efficiency, and give you a competitive edge in the digital age.
+                We design and develop high-performance web applications, mobile apps, and AI solutions for startups and enterprises.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="#contact" className="bg-[#3B82F6] text-white px-8 py-4 rounded-lg hover:bg-[#1E40AF] transition-all font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transform text-center">
-                  Start Your Project
+                  Start a Project
                 </a>
                 <a href="#portfolio" className="bg-white text-[#3B82F6] px-8 py-4 rounded-lg hover:bg-gray-50 transition-all font-semibold text-lg border-2 border-[#3B82F6] text-center">
                   View Our Work
@@ -67,33 +66,86 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Side - Visual Element */}
+            {/* Right Side - Dashboard UI Preview & Tech Illustration */}
             <div className="relative hidden md:block">
               <div className="relative w-full h-[500px]">
-                {/* Floating Cards Animation */}
-                <div className="absolute top-0 right-0 w-64 h-40 bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition-transform">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                {/* Main Dashboard Preview Card */}
+                <div className="absolute top-0 left-0 right-0 w-full bg-white rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform">
+                  {/* Dashboard Header */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div className="text-xs text-gray-400">Dashboard Preview</div>
+                  </div>
+                  
+                  {/* Dashboard Content */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-lg text-white">
+                      <div>
+                        <div className="text-sm opacity-90">Total Revenue</div>
+                        <div className="text-2xl font-bold">$2.5M</div>
+                      </div>
+                      <div className="text-3xl">📈</div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="p-3 bg-blue-50 rounded-lg">
+                        <div className="text-xs text-gray-600">Active Users</div>
+                        <div className="text-xl font-bold text-[#1E40AF]">12.5K</div>
+                      </div>
+                      <div className="p-3 bg-purple-50 rounded-lg">
+                        <div className="text-xs text-gray-600">Projects</div>
+                        <div className="text-xl font-bold text-[#8B5CF6]">248</div>
+                      </div>
+                    </div>
+                    
+                    {/* Progress Bars */}
+                    <div className="space-y-2">
+                      <div>
+                        <div className="flex justify-between text-xs mb-1">
+                          <span className="text-gray-600">Development</span>
+                          <span className="text-[#3B82F6] font-semibold">85%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] h-2 rounded-full" style={{width: '85%'}}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-xs mb-1">
+                          <span className="text-gray-600">Testing</span>
+                          <span className="text-[#3B82F6] font-semibold">60%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2">
+                          <div className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] h-2 rounded-full" style={{width: '60%'}}></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Success Card */}
+                <div className="absolute bottom-0 right-0 w-56 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <span className="text-2xl">✓</span>
                     </div>
                     <div>
-                      <div className="font-bold text-[#0F172A]">Project Complete</div>
-                      <div className="text-sm text-gray-500">On time delivery</div>
+                      <div className="font-bold text-[#0F172A] text-sm">Deployed</div>
+                      <div className="text-xs text-gray-500">Production ready</div>
                     </div>
                   </div>
-                  <div className="w-full bg-gray-100 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] h-2 rounded-full w-full"></div>
-                  </div>
                 </div>
 
-                <div className="absolute bottom-20 left-0 w-64 h-40 bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] rounded-2xl shadow-xl p-6 text-white transform hover:scale-105 transition-transform">
-                  <div className="text-4xl font-bold mb-2">$2.5M+</div>
-                  <div className="text-blue-100">Revenue Generated for Clients</div>
-                  <div className="mt-3 text-sm">↑ 145% Growth</div>
-                </div>
-
-                <div className="absolute top-32 left-12 w-48 h-48 bg-[#8B5CF6]/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 right-12 w-48 h-48 bg-[#3B82F6]/10 rounded-full blur-3xl"></div>
+                {/* Abstract Tech Elements */}
+                <div className="absolute top-32 -left-8 w-32 h-32 bg-[#8B5CF6]/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-20 -right-8 w-32 h-32 bg-[#3B82F6]/10 rounded-full blur-3xl"></div>
+                
+                {/* Code Brackets Decoration */}
+                <div className="absolute -top-4 -left-4 text-6xl text-[#3B82F6]/20 font-mono">&lt;</div>
+                <div className="absolute -bottom-4 -right-4 text-6xl text-[#8B5CF6]/20 font-mono">/&gt;</div>
               </div>
             </div>
           </div>
