@@ -1,73 +1,106 @@
+"use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import SectionHeading from "./ui/SectionHeading";
+import ProjectCard, { type Project } from "./ui/ProjectCard";
+
+const categories = ["All", "Web App", "Mobile"];
+
+const projects: Project[] = [
+  {
+    title: "FinTrack Pro",
+    description:
+      "Real-time financial analytics dashboard for institutional investors with live market data feeds and portfolio tracking.",
+    category: "Web App",
+    tech: ["Next.js", "Python", "PostgreSQL", "AWS"],
+    metric: "$2.5M",
+    metricLabel: "Processed daily",
+    mockup: "dashboard",
+  },
+  {
+    title: "MediConnect",
+    description:
+      "HIPAA-compliant telehealth platform connecting patients with healthcare providers via secure video consultations.",
+    category: "Mobile",
+    tech: ["React Native", "Node.js", "MongoDB", "WebRTC"],
+    metric: "50K+",
+    metricLabel: "Consultations",
+    mockup: "mobile",
+  },
+  {
+    title: "PayFlow",
+    description:
+      "Cross-border payment processing platform enabling fast, secure transactions across African markets.",
+    category: "Mobile",
+    tech: ["React Native", "Rust", "PostgreSQL", "Stripe"],
+    metric: "15",
+    metricLabel: "Countries supported",
+    mockup: "chart",
+  },
+  {
+    title: "LearnPath",
+    description:
+      "Adaptive learning platform with AI-driven curriculum personalization and progress tracking for online education.",
+    category: "Web App",
+    tech: ["Next.js", "Django", "PyTorch", "Redis"],
+    metric: "200K",
+    metricLabel: "Active learners",
+    mockup: "dashboard",
+  },
+];
+
 export default function Portfolio() {
-  const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online store with payment integration',
-      category: 'Web Development',
-    },
-    {
-      title: 'Mobile Banking App',
-      description: 'Secure mobile banking solution for iOS and Android',
-      category: 'Mobile App',
-    },
-    {
-      title: 'SaaS Dashboard',
-      description: 'Analytics dashboard for business intelligence',
-      category: 'Web Development',
-    },
-    {
-      title: 'Healthcare Portal',
-      description: 'Patient management system for healthcare providers',
-      category: 'Web Development',
-    },
-    {
-      title: 'Fitness Tracker',
-      description: 'Cross-platform fitness and wellness application',
-      category: 'Mobile App',
-    },
-    {
-      title: 'Real Estate Platform',
-      description: 'Property listing and management system',
-      category: 'Web Development',
-    },
-  ];
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filtered =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 px-4" style={{ backgroundColor: 'var(--color-background)' }}>
+    <section id="portfolio" className="py-20 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4" style={{ color: 'var(--color-primary)' }}>
-          Our Portfolio
-        </h2>
-        <p className="text-center text-lg mb-12 max-w-2xl mx-auto">
-          Showcasing our recent projects and success stories
-        </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+        <SectionHeading
+          title="Our Work"
+          subtitle="Products we've built, scaled, and shipped."
+        />
+
+        {/* Filter Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                activeFilter === cat
+                  ? "bg-primary text-gray-900"
+                  : "text-gray-500 hover:text-gray-900 border border-gray-200 hover:border-gray-300 bg-white"
+              }`}
             >
-              <div
-                className="h-48 flex items-center justify-center text-white text-6xl"
-                style={{ backgroundColor: 'var(--color-secondary)' }}
-              >
-                💼
-              </div>
-              <div className="p-6">
-                <span
-                  className="text-sm font-medium px-3 py-1 rounded-full inline-block mb-2"
-                  style={{ backgroundColor: 'var(--color-accent)', color: 'white' }}
-                >
-                  {project.category}
-                </span>
-                <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>
-                  {project.title}
-                </h3>
-                <p style={{ color: 'var(--color-text)' }}>{project.description}</p>
-              </div>
-            </div>
+              {cat}
+            </button>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, i) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                delay={i * 0.08}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );

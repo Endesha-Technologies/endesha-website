@@ -1,42 +1,102 @@
+"use client";
+
+import AnimateOnScroll from "./ui/AnimateOnScroll";
+import SectionHeading from "./ui/SectionHeading";
+
+const valueProps = [
+  {
+    title: "Senior Engineers Only",
+    description:
+      "Every project is staffed with experienced engineers. No juniors, no handoffs, no surprises.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+      />
+    ),
+  },
+  {
+    title: "Transparent Pricing",
+    description:
+      "Fixed-price contracts with clear milestones. You know exactly what you're paying for.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    ),
+  },
+  {
+    title: "On-Time Delivery",
+    description:
+      "We ship on schedule. Our average MVP delivery is 8 weeks from kickoff to launch.",
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    ),
+  },
+];
+
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="py-20 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--color-primary)' }}>
-              About Endesha
-            </h2>
-            <p className="text-lg mb-4" style={{ color: 'var(--color-text)' }}>
-              We are a team of passionate developers, designers, and strategists dedicated to creating 
-              exceptional digital experiences.
-            </p>
-            <p className="text-lg mb-4" style={{ color: 'var(--color-text)' }}>
-              With years of experience in the industry, we combine technical expertise with creative 
-              thinking to deliver solutions that exceed expectations.
-            </p>
-            <p className="text-lg" style={{ color: 'var(--color-text)' }}>
-              Our mission is to empower businesses through technology, helping them achieve their goals 
-              and stay ahead in the digital age.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--color-primary)' }}>50+</div>
-              <div style={{ color: 'var(--color-text)' }}>Projects Completed</div>
+        <SectionHeading
+          title="About Us"
+          subtitle="Built for clients. Open to collaborators. Delivered on time, every time."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* Left Column */}
+          <AnimateOnScroll direction="left">
+            <div className="space-y-6">
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Endesha Technologies is a software engineering firm founded to
+                help startups and growing companies build reliable digital
+                products. We specialize in full-stack web applications, mobile
+                solutions, and AI integrations that scale from prototype to
+                production.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Our team brings decades of combined experience from leading tech
+                companies, and we apply that expertise to every project we take
+                on. We don&apos;t just write code — we build systems that last.
+              </p>
             </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--color-primary)' }}>30+</div>
-              <div style={{ color: 'var(--color-text)' }}>Happy Clients</div>
-            </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--color-primary)' }}>5+</div>
-              <div style={{ color: 'var(--color-text)' }}>Years Experience</div>
-            </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-              <div className="text-4xl font-bold mb-2" style={{ color: 'var(--color-primary)' }}>100%</div>
-              <div style={{ color: 'var(--color-text)' }}>Client Satisfaction</div>
-            </div>
+          </AnimateOnScroll>
+
+          {/* Right Column - Value Props */}
+          <div className="space-y-8">
+            {valueProps.map((prop, i) => (
+              <AnimateOnScroll key={prop.title} delay={i * 0.12}>
+                <div className="flex items-start gap-4 group">
+                  <div className="shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors">
+                    <svg
+                      className="w-6 h-6 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      {prop.icon}
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {prop.title}
+                    </h3>
+                    <p className="text-gray-600">{prop.description}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
           </div>
         </div>
       </div>
