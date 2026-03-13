@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #1E40AF;
-  --color-secondary: #3B82F6;
-  --color-accent: #8B5CF6;
-  --color-background: #F8FAFC;
-  --color-text: #0F172A;
-  --font-heading: var(--font-poppins);
-  --font-body: var(--font-inter);
+  --color-bg-deep: #FDFDFD;
+  --color-bg-alt: #F3F4F6;
+  --color-surface: #FFFFFF;
+  --color-primary: #EAB308;
+  --color-primary-light: #FDE047;
+  --color-text: #1F2937;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #9CA3AF;
+  --font-heading: var(--font-manrope);
+  --font-body: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-background);
+  background: var(--color-bg-deep);
   color: var(--color-text);
   font-family: var(--font-body);
 }
@@ -20,6 +27,27 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+::selection {
+  background: rgba(234, 179, 8, 0.3);
+  color: #1F2937;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E5E7EB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}
 
 @keyframes float {
   0%, 100% {
@@ -32,4 +60,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
 }

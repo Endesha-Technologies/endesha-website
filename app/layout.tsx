@@ -1,23 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ 
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: '--font-manrope',
   display: 'swap',
-});
-
-const poppins = Poppins({ 
-  weight: ['400', '500', '600', '700'],
-  subsets: ["latin"],
-  variable: '--font-poppins',
-  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
-  title: "Endesha - Your Digital Partner",
-  description: "Modern web solutions for your business",
+  title: "Endesha Technologies | Professional Software Engineering",
+  description: "Full-stack web apps, mobile products, and AI integrations for modern companies.",
 };
 
 export default function RootLayout({
@@ -27,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${poppins.variable} antialiased`}>{children}</body>
+      <body className={`${manrope.variable} antialiased text-base`}>{children}</body>
     </html>
   );
 }
